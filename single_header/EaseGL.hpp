@@ -216,7 +216,7 @@ namespace EaseGL
 			void GenTextures();
 			void DeleteTextures();
 		public:
-			GLTexture() : m_TextureType(TextureType::TEXTURE2D) {};
+			GLTexture() : m_TextureType(TextureType::TEXTURE2D), m_Pixels(nullptr), m_Width(0), m_Height(0), m_Channels(0), m_TextureID(0), m_Filepath("") {};
 			GLTexture(GLuint textureID, TextureType textureType);
 
 			void LoadTexture(const char* filepath);
@@ -585,7 +585,6 @@ namespace EaseGL
    GLTexture::GLTexture(TextureType type) 
       : m_TextureType(type), m_Pixels(nullptr), m_Width(0), m_Height(0), m_Channels(0), m_TextureID(0), m_Filepath("")
    {
-      GenTextures();
    }
 
    GLTexture::GLTexture(TextureType type, const char* filepath)
